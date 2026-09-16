@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: paper-invoice-intelligence
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: OPENROUTER_MODEL
+        value: openai/gpt-4.1-mini
+      - key: APP_URL
+        sync: false
