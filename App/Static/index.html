@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Paper — Invoice Intelligence</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <div>
+        <div class="eyebrow">PAPER • AI DOCUMENT INTELLIGENCE</div>
+        <h1>Invoice + Packing List Extractor</h1>
+        <p class="sub">Upload multiple documents, describe what you need, and get structured reconciled data.</p>
+      </div>
+      <span id="status" class="status">Checking AI…</span>
+    </header>
+
+    <section class="card">
+      <label class="label">1. Documents</label>
+      <label class="drop" id="drop">
+        <input id="files" type="file" multiple accept=".pdf,.jpg,.jpeg,.png,.webp">
+        <strong>Drop invoices and packing lists here</strong>
+        <span>PDF, JPG, PNG or WEBP • multiple files supported</span>
+      </label>
+      <div id="fileList" class="file-list"></div>
+    </section>
+
+    <section class="card">
+      <label class="label" for="request">2. What should AI extract?</label>
+      <textarea id="request">Extract invoice number, invoice date, supplier, buyer, currency, total amount, line items, HS code, package count, gross weight and net weight. Use the packing list for net weight when available. Match related invoice and packing-list documents and show any conflicts.</textarea>
+      <button id="run" class="primary">Extract with AI</button>
+      <div id="error" class="error"></div>
+    </section>
+
+    <section id="results" class="card hidden">
+      <div class="result-head">
+        <div>
+          <label class="label">3. Results</label>
+          <div id="summary" class="summary"></div>
+        </div>
+        <div class="actions">
+          <button id="jsonBtn">JSON</button>
+          <button id="xlsxBtn">Excel</button>
+        </div>
+      </div>
+      <div id="records"></div>
+    </section>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
